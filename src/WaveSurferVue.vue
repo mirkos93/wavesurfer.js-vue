@@ -6,19 +6,20 @@
 import WaveSurfer from "wavesurfer.js";
 export default {
   props: ['src', 'options'],
+  expose: ['waveSurfer'],
   data() {
     return {
-      publicWaveSurfer: {}
+      waveSurfer: {}
     };
   },
   mounted() {
     let options = this.options;
     let wsOptions = Object.assign({ container: this.$el }, options);
-    this.publicWaveSurfer = new WaveSurfer.create(wsOptions);
-    this.publicWaveSurfer.load(this.src);
+    this.waveSurfer = new WaveSurfer.create(wsOptions);
+    this.waveSurfer.load(this.src);
   },
   beforeDestroy() {
-    this.publicWaveSurfer.destroy();
+    this.waveSurfer.destroy();
   }
 };
 </script>
