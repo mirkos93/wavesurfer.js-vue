@@ -8,17 +8,17 @@ export default {
   props: ['src', 'options'],
   data() {
     return {
-      waveSurfer: {}
+      publicWaveSurfer: {}
     };
   },
   mounted() {
     let options = this.options;
     let wsOptions = Object.assign({ container: this.$el }, options);
-    this.waveSurfer = new WaveSurfer.create(wsOptions);
-    this.waveSurfer.load(this.src);
+    this.publicWaveSurfer = new WaveSurfer.create(wsOptions);
+    this.publicWaveSurfer.load(this.src);
   },
   beforeDestroy() {
-    this.waveSurfer.destroy();
+    this.publicWaveSurfer.destroy();
   }
 };
 </script>
